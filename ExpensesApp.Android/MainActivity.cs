@@ -6,6 +6,9 @@ using Android.OS;
 using System.IO;
 using ExpensesApp.Droid.Dependencies;
 using Xamarin.Forms;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace ExpensesApp.Droid
 {
@@ -25,6 +28,9 @@ namespace ExpensesApp.Droid
 
             //Register Dependencies
             //DependencyService.Register<Share>();
+
+            AppCenter.Start("bbffab18-8fd5-46a1-984a-09e4f831aeb3",
+                   typeof(Analytics), typeof(Crashes));
 
             LoadApplication(new App(full_path));
         }
