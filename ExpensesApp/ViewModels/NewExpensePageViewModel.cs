@@ -1,4 +1,5 @@
-﻿using ExpensesApp.Models;
+﻿using ExpensesApp.Helpers;
+using ExpensesApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -96,23 +97,48 @@ namespace ExpensesApp.ViewModels
 
         public void SaveExpense()
         {
-            Expense expense = new Expense()
+            try
             {
-                Name = ExpenseName,
-                Amount = ExpenseAmount,
-                Category = ExpenseCategory,
-                Date = ExpenseDate,
-                Description = ExpenseDescription
-            };
+                //throw (new Exception("Sample error report"));
 
-            int response = Expense.InsertExpenses(expense);
-            if (response > 0)
-            {
-                Application.Current.MainPage.Navigation.PopAsync();
+                Expense expense = new Expense()
+                {
+                    Name = ExpenseName,
+                    Amount = ExpenseAmount,
+                    Category = ExpenseCategory,
+                    Date = ExpenseDate,
+                    Description = ExpenseDescription
+                };
+
+                int response = Expense.InsertExpenses(expense);
+                if (response > 0)
+                {
+                    Application.Current.MainPage.Navigation.PopAsync();
+
+                    var properties = new Dictionary<string, string>
+                    {
+                        {"New Expenses Page", "Save Expense Command"}
+                    };
+                    AppCenterHelpers.TrackEvent("Expenses Saved", properties);
+                }
+                else
+                {
+                    Application.Current.MainPage.DisplayAlert("Error", "No items were inserted", "Ok");
+
+                    var properties = new Dictionary<string, string>
+                    {
+                        {"New Expenses Page", "Save Expense Command"}
+                    };
+                    AppCenterHelpers.TrackEvent("No Expenses Saved", properties);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Application.Current.MainPage.DisplayAlert("Error", "No items were inserted", "Ok");
+                var properties = new Dictionary<string, string>
+                {
+                    {"New Expenses Page", "Save Expense Command"}
+                };
+                AppCenterHelpers.TrackError(ex, properties);
             }
         }
         private void GetCategories()

@@ -4,6 +4,9 @@ using System.IO;
 using System.Linq;
 using ExpensesApp.iOS.Dependencies;
 using Foundation;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using UIKit;
 using Xamarin.Forms;
 
@@ -32,6 +35,9 @@ namespace ExpensesApp.iOS
 
             //Register Dependencies
             //DependencyService.Register<Share>();
+
+            AppCenter.Start("9f2f71f8-53a9-466f-b256-c73a7ccc2172",
+                   typeof(Analytics), typeof(Crashes));
 
             LoadApplication(new App(full_path));
 
