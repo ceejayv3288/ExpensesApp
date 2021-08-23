@@ -1,11 +1,4 @@
-﻿using Microsoft.AppCenter.Crashes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ExpensesApp.Views
@@ -16,14 +9,6 @@ namespace ExpensesApp.Views
         public MainPage()
         {
             InitializeComponent();
-            //try
-            //{
-            //    throw (new Exception("Sample error report"));
-            //}
-            //catch (Exception ex)
-            //{
-            //    Crashes.TrackError(ex);
-            //}
         }
     }
 }
