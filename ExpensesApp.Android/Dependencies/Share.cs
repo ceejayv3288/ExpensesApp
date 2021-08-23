@@ -14,7 +14,7 @@ namespace ExpensesApp.Droid.Dependencies
         {
             var intent = new Intent(Intent.ActionSend);
             intent.SetType("text/plain");
-            var documentUri = FileProvider.GetUriForFile(Forms.Context.ApplicationContext, "com.companyname.expensesapp.provider", new Java.IO.File(filePath));
+            var documentUri = FileProvider.GetUriForFile(Forms.Context.ApplicationContext, "com.SiegeSoft.expensesapp.provider", new Java.IO.File(filePath));
 
             intent.PutExtra(Intent.ExtraStream, documentUri);
             intent.PutExtra(Intent.ExtraText, title);

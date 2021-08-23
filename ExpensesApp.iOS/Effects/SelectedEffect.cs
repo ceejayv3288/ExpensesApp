@@ -4,7 +4,7 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ResolutionGroupName("companyname")]
+[assembly: ResolutionGroupName("SiegeSoft")]
 [assembly: ExportEffect(typeof(SelectedEffect), "SelectedEffect")]
 namespace ExpensesApp.iOS.Effects
 {

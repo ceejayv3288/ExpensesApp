@@ -5,7 +5,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly:ResolutionGroupName("companyname")]
+[assembly:ResolutionGroupName("SiegeSoft")]
 [assembly:ExportEffect(typeof(SelectedEffect), "SelectedEffect")]
 namespace ExpensesApp.Droid.Effects
 {
