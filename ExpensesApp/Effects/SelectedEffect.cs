@@ -7,7 +7,7 @@ namespace ExpensesApp.Effects
 {
     public class SelectedEffect : RoutingEffect
     {
-        public SelectedEffect() : base("companyname.SelectedEffect")
+        public SelectedEffect() : base("SiegeSoft.SelectedEffect")
         {
 
         }

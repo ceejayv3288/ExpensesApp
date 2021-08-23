@@ -26,7 +26,7 @@ namespace ExpensesApp.Views
         {
             base.OnAppearing();
 
-            _newExpensePageViewModel.GetExpenseStatus();
+            //_newExpensePageViewModel.GetExpenseStatus();
 
             int count = 0;
             foreach (var es in _newExpensePageViewModel.ExpenseStatuses)
