@@ -7,6 +7,17 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             android:TabbedPage.IsSwipePagingEnabled="True"
             BarBackgroundColor="SkyBlue">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     VerticalOptions="Center"
+                     Spacing="10">
+            <Image Source="expenses.png"/>
+            <Label Margin="10,0,0,0"
+                   VerticalOptions="Center"
+                   Text="Expenses"
+                   TextColor="{OnPlatform Android=White, iOS=Black, Default=Black}"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <views:CategoriesPage Title="Categories"
                           Icon="category.png"/>
     <views:ExpensesPage Title="Expenses"
