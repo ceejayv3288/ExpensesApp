@@ -15,17 +15,61 @@
         <ToolbarItem Text="Export" Command="{Binding Source={StaticResource vm}, Path=ExportCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Source={StaticResource vm}, Path=CategoryExpensesCollection}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Margin="16,0">
-                            <Label Text="{Binding Category}"/>
-                            <ProgressBar Progress="{Binding ExpensesPercentage}"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackLayout>
+            <Label x:Name="titleLabel"
+                   Text="Categories"
+                   FontSize="16">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="OrientationStates">
+                        <VisualState Name="Landscape">
+                            <VisualState.Setters>
+                                <Setter Property="IsVisible" Value="false"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Portrait">
+                            <VisualState.Setters>
+                                <Setter Property="IsVisible" Value="true"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Label>
+            <Button x:Name="exampleButton"
+                    Text="Button"
+                    Pressed="Button_Pressed"
+                    Released="Button_Released">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="ButtonStates">
+                        <VisualState Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Blue"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Transparent"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Focused">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Green"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+            <ListView ItemsSource="{Binding Source={StaticResource vm}, Path=CategoryExpensesCollection}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="16,0">
+                                <Label Text="{Binding Category}"/>
+                                <ProgressBar Progress="{Binding ExpensesPercentage}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
