@@ -81,7 +81,8 @@
                         </VisualStateGroup>
                     </VisualStateManager.VisualStateGroups>
                 </ImageButton>
-                <ListView ItemsSource="{Binding Source={StaticResource vm}, Path=CategoryExpensesCollection}">
+                <ListView ItemsSource="{Binding Source={StaticResource vm}, Path=CategoryExpensesCollection}"
+                          CachingStrategy="RecycleElement">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
